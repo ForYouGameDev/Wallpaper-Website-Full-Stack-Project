@@ -7,6 +7,24 @@
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <title>Frameshift — wallpapers for every screen</title>
     <meta name="description" content="Free and premium phone and desktop wallpapers: anime, nature, cars, gaming, AMOLED, space and more." />
+    <script>
+      // TEMP DEBUG: shows any startup error on the page. Remove after fixing.
+      (function () {
+        function show(msg) {
+          var p = document.createElement('pre');
+          p.style.cssText = 'color:#b00020;background:#fff;padding:16px;white-space:pre-wrap;font:14px monospace;position:fixed;top:0;left:0;right:0;z-index:99999';
+          p.textContent = msg;
+          (document.body || document.documentElement).appendChild(p);
+        }
+        window.addEventListener('error', function (e) {
+          var t = e.target && e.target !== window && (e.target.src || e.target.href);
+          show(t ? 'Failed to load: ' + t : 'ERROR: ' + e.message + ' @ ' + e.filename + ':' + e.lineno);
+        }, true);
+        window.addEventListener('unhandledrejection', function (e) {
+          show('PROMISE ERROR: ' + ((e.reason && e.reason.message) || e.reason));
+        });
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />

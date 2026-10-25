@@ -9,7 +9,7 @@ export const SITE_URL = (import.meta.env.VITE_SITE_URL || '').replace(/\/$/, '')
 export const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'support@example.com';
 
 // Only the public anon key is used here. Authorization is enforced by RLS and Edge Functions.
-export const supabase = createClient(url ?? 'http://localhost:54321', anon ?? 'missing-anon-key', {
+export const supabase = createClient(url || 'http://localhost:54321', anon || 'missing-anon-key', {
   auth: { flowType: 'pkce', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
 });
 

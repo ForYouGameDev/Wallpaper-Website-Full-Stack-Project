@@ -1,0 +1,14 @@
+# Minimal config for the Supabase CLI. Run `supabase init` first if you want the full default file,
+# then merge the [functions.*] blocks below into it.
+# verify_jwt is disabled because each function authenticates the caller itself (getUser) —
+# this works with both legacy JWT keys and new publishable keys. The webhook has no user JWT at all.
+[functions.create-order]
+verify_jwt = false
+[functions.verify-payment]
+verify_jwt = false
+[functions.validate-coupon]
+verify_jwt = false
+[functions.get-download-url]
+verify_jwt = false
+[functions.payment-webhook]
+verify_jwt = false
